@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Guía de Sustentación y Dominio Técnico - SERVICIO-TEC-CRM</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    background-color: #ffffff;
+    line-height: 1.45;
+    font-size: 9.5pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 255mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    page-break-after: always;
+    padding: 30px 24px;
+    border: 2px solid #0284c7;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 35%, #f8fafc 100%);
+  }
+
+  .cover-header {
+    text-align: center;
+    border-bottom: 3px solid #0284c7;
+    padding-bottom: 18px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background-color: #0284c7;
+    color: white;
+    font-weight: 700;
+    font-size: 11pt;
+    padding: 6px 18px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .cover-title {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.15;
+    margin: 8px 0;
+  }
+
+  .cover-subtitle {
+    font-size: 13pt;
+    color: #0369a1;
+    font-weight: 600;
+    margin: 6px 0 0 0;
+  }
+
+  .cover-notice {
+    background-color: #fef3c7;
+    border: 1px solid #fde68a;
+    border-left: 5px solid #d97706;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 20px 0;
+    color: #78350f;
+    font-size: 10pt;
+  }
+
+  .cover-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .metric-card {
+    background: #ffffff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  }
+
+  .metric-num {
+    font-size: 22pt;
+    font-weight: 800;
+    color: #0284c7;
+    display: block;
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: 8.5pt;
+    color: #475569;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .cover-index-box {
+    background: #f1f5f9;
+    border-left: 5px solid #0284c7;
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 14px;
+    font-size: 9pt;
+    color: #64748b;
+  }
+
+  /* HEADINGS */
+  h1 {
+    font-size: 16pt;
+    color: #0f172a;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 12pt;
+    color: #0369a1;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    border-left: 4px solid #0284c7;
+    padding-left: 8px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 10pt;
+    color: #1e293b;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 7px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin: 0 0 8px 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 3px;
+  }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 9px 13px;
+    margin: 10px 0;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+
+  .callout-tech {
+    background-color: #f0f9ff;
+    border-left: 4px solid #0284c7;
+    color: #0c4a6e;
+  }
+
+  .callout-warn {
+    background-color: #fffbeb;
+    border-left: 4px solid #d97706;
+    color: #78350f;
+  }
+
+  .callout-qa {
+    background-color: #faf5ff;
+    border-left: 4px solid #9333ea;
+    color: #581c87;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+    font-size: 9.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* TABLAS */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 8.5pt;
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  th {
+    background-color: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 5px 7px;
+    border: 1px solid #334155;
+  }
+
+  td {
+    padding: 5px 7px;
+    border: 1px solid #cbd5e1;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge-super { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+  .badge-sub { background-color: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+  .badge-interface { background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+  .badge-enum { background-color: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+
+  /* CODE BLOCKS */
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 7.8pt;
+    line-height: 1.35;
+    overflow-x: auto;
+    margin: 6px 0;
+    page-break-inside: avoid;
+  }
+
+  code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 8.5pt;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .domain-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin: 12px 0 6px 0;
+    page-break-inside: avoid;
+  }
+
+  .domain-header h2 {
+    color: #38bdf8;
+    border-left: none;
+    padding-left: 0;
+    margin: 0;
+    font-size: 11.5pt;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div class="cover-header">
+    <span class="cover-badge">Guía de Dominio Técnico y Sustentación</span>
+    <h1 class="cover-title">SISTEMA SERVICIO-TEC-CRM</h1>
+    <div class="cover-subtitle">Arquitectura Avanzada de 30 Superclases, 6 Interfaces y Ciclo de Vida Completo</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-notice">
+      <strong>⚠️ REGLA DE DEFENSA GRUPAL:</strong>
+      <p style="margin: 4px 0 0 0; font-size: 9.5pt;">
+        Esta guía contiene la totalidad del conocimiento técnico del proyecto. <strong>No está dividida por integrante porque los 3 integrantes deben dominar el 100% del sistema</strong>. Durante la sustentación el jurado puede interrogar a cualquiera sobre cualquier clase, interfaz, método polimórfico o flujo de ejecución.
+      </p>
+    </div>
+
+    <div class="cover-metrics">
+      <div class="metric-card">
+        <span class="metric-num">30</span>
+        <span class="metric-label">Superclases</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">6</span>
+        <span class="metric-label">Interfaces</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">4</span>
+        <span class="metric-label">Enumeradores</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">75</span>
+        <span class="metric-label">Clases Totales</span>
+      </div>
+    </div>
+
+    <div class="cover-index-box">
+      <strong style="font-size: 10pt; color: #0369a1; display: block; margin-bottom: 6px;">CONTENIDO DE LA GUÍA DE SUSTENTACIÓN:</strong>
+      <ol style="margin: 0; padding-left: 20px; font-size: 9pt;">
+        <li><strong>Matriz Maestra de las 30 Superclases:</strong> Verificación exhaustiva organizada en los 8 dominios de negocio con métodos polimórficos y justificación técnica.</li>
+        <li><strong>Contratos de Software (6 Interfaces y 4 Enums):</strong> Desacoplamiento, reglas comerciales y tipado fuerte del sistema.</li>
+        <li><strong>Demostración Práctica del Flujo en GESTIONSERVICIOTEC.java:</strong> Recorrido paso a paso de los 11 estados de ejecución en vivo.</li>
+        <li><strong>Banco Maestro de Preguntas y Respuestas del Jurado:</strong> 12 preguntas críticas de defensa con argumentos técnicos sólidos.</li>
+        <li><strong>Recomendaciones de Oro para la Exposición Grupal:</strong> Protocolo de defensa ante preguntas dirigidas.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div>
+      <strong>Proyecto:</strong> SERVICIO-TEC-CRM (Maven / NetBeans / Java 21)<br>
+      <strong>Dominio:</strong> CRM & Gestión de Servicio Técnico Informático
+    </div>
+    <div style="text-align: right;">
+      <strong>Versión:</strong> Arquitectura Consolidada<br>
+      <strong>Equipo:</strong> 3 Integrantes (Dominio Total Compartido)
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- SECCIÓN 1: MATRIZ MAESTRA DE LAS 30 SUPERCLASES -->
+<!-- ========================================== -->
+<h1>1. Matriz Maestra y Análisis Integral de las 30 Superclases</h1>
+<p>
+El sistema cuenta con <strong>exactamente 30 superclases</strong> (clases que son extendidas por otras en el código fuente). Para facilitar su estudio y dominio absoluto, están agrupadas en <strong>8 dominios funcionales</strong>:
+</p>
+
+<!-- DOMINIO 1 -->
+<div class="domain-header">
+  <h2>DOMINIO 1: CAPA BASE Y TRAZABILIDAD (4 Superclases) - Paquete: thera.gestion.servicio.tec.base</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Establece la raíz universal de identidad, bienes físicos y mecanismos de auditoría para todo el sistema.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>EntidadBase</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Persona</code>, <code>Elemento</code></td>
+      <td><code>obtenerDescripcion()</code></td>
+      <td>Raíz del dominio identificable. Provee <code>id</code>, <code>nombre</code> y contrato descriptivo obligatorio.</td>
+    </tr>
+    <tr>
+      <td><code>Elemento</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Equipo</code>, <code>Repuesto</code></td>
+      <td><code>obtenerDescripcion()</code></td>
+      <td>Abstrae bienes materiales físicos que ingresan o se almacenan en el taller.</td>
+    </tr>
+    <tr>
+      <td><code>EntidadRastreable</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Cambios</code></td>
+      <td><code>estaFinalizada()</code><br><code>obtenerResumenEstado()</code></td>
+      <td>Provee trazabilidad temporal (fechas de alta, vigencia y bandera de cierre).</td>
+    </tr>
+    <tr>
+      <td><code>RegistroAuditoria</code></td>
+      <td><span class="badge badge-super">Concreta</span></td>
+      <td><code>RegistroAcceso</code>, <code>RegistroSeguimiento</code></td>
+      <td><code>imprimirRegistro()</code></td>
+      <td>Base del log transaccional: quién modificó qué, timestamp y acción ejecutada.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- DOMINIO 2 -->
+<div class="domain-header">
+  <h2>DOMINIO 2: JERARQUÍA DE PERSONAS Y ACTORES (3 Superclases) - Paquete: thera.gestion.servicio.tec.personas</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Gestiona los recursos humanos internos (técnicos, directivos) y los clientes (naturales y jurídicos).
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Persona</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>PersonalInterno</code>, <code>ClienteBase</code></td>
+      <td><code>obtenerContacto()</code></td>
+      <td>Centraliza datos universales de comunicación: teléfono y correo electrónico.</td>
+    </tr>
+    <tr>
+      <td><code>PersonalInterno</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Tecnico</code>, <code>Administrador</code></td>
+      <td><code>obtenerCargo()</code></td>
+      <td>Distingue colaboradores de la empresa con legajo y credenciales de acceso.</td>
+    </tr>
+    <tr>
+      <td><code>ClienteBase</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Cliente</code>, <code>ClienteEmpresarial</code></td>
+      <td><code>validarIdentidad()</code><br><code>enviarNotificacion()</code></td>
+      <td>Implementa <code>INotificable</code> e <code>IValidable</code>. Aplica LSP para tratar indistintamente DNI y RUC.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- DOMINIO 3 -->
+<div class="domain-header">
+  <h2>DOMINIO 3: ÓRDENES TÉCNICAS Y CICLO DE VIDA (2 Superclases) - Paquete: thera.gestion.servicio.tec.ordenes</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Núcleo del taller donde se ejecuta el diagnóstico, cotización de mano de obra y consumo de repuestos.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Cambios</code></td>
+      <td><span class="badge badge-super">Concreta</span></td>
+      <td><code>OrdenServicio</code></td>
+      <td><code>cambiarEstado()</code><br><code>agregarHistorial()</code></td>
+      <td>Encapsula la máquina de estados (<code>EstadoOrden</code>), diagnóstico y mano de obra.</td>
+    </tr>
+    <tr>
+      <td><code>OrdenServicio</code></td>
+      <td><span class="badge badge-super">Concreta</span></td>
+      <td><code>OrdenMantenimiento</code>, <code>OrdenReparacion</code></td>
+      <td><code>calcularTotal()</code><br><code>imprimirDetalle()</code></td>
+      <td>Implementa <code>ICalculable</code> e <code>IReportable</code>. Asocia cliente, equipo, técnico y repuestos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- DOMINIO 4 -->
+<div class="domain-header">
+  <h2>DOMINIO 4: ARQUITECTURA DE GESTORES EN MEMORIA (4 Superclases) - Paquete: thera.gestion.servicio.tec.gestores</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Maneja las colecciones en memoria, búsquedas por código y operaciones CRUD con capacidad finita.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>GestorBase</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>GestorPersonas</code>, <code>GestorAlmacen</code>, <code>GestorOperaciones</code></td>
+      <td><code>buscarPorId()</code><br><code>registrar()</code></td>
+      <td>Implementa <code>IConsultable</code> e <code>IGestionable</code>. Provee capacidad máxima y correlativos.</td>
+    </tr>
+    <tr>
+      <td><code>GestorPersonas</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>GestorClientes</code>, <code>GestorTecnicos</code></td>
+      <td><code>filtrarPorCriterio()</code></td>
+      <td>Especialización para búsqueda por DNI/RUC y validación de usuarios duplicados.</td>
+    </tr>
+    <tr>
+      <td><code>GestorAlmacen</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>GestorProveedores</code>, <code>InventarioRepuestos</code></td>
+      <td><code>contarItemsEnStock()</code><br><code>emitirAlertaStock()</code></td>
+      <td>Especialización para control de inventario de piezas y stock mínimo de seguridad.</td>
+    </tr>
+    <tr>
+      <td><code>GestorOperaciones</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>GestorServicioTecnico</code></td>
+      <td><code>listarOperacionesActivas()</code><br><code>filtrarPorEstado()</code></td>
+      <td>Especialización para administración de órdenes en curso y seguimiento de taller.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- DOMINIO 5 -->
+<div class="domain-header">
+  <h2>DOMINIO 5: MOTOR DE PROMOCIONES Y BENEFICIOS (5 Superclases) - Paquete: thera.gestion.servicio.tec.descuentos</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Motor de reglas de negocio que premia la recurrencia del cliente y aplica campañas de marketing sin acoplamiento.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>GestorPromocionesBase</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>GestorPromociones</code></td>
+      <td><code>evaluarBeneficios()</code></td>
+      <td>Superclase del motor evaluador de políticas comerciales y reglas aplicables.</td>
+    </tr>
+    <tr>
+      <td><code>BeneficioBase</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Descuento</code></td>
+      <td><code>aplicarBeneficio()</code></td>
+      <td>Raíz conceptual de cualquier ventaja económica o beneficio comercial otorgado.</td>
+    </tr>
+    <tr>
+      <td><code>Descuento</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>DescuentoDirecto</code>, <code>DescuentoCondicional</code></td>
+      <td><code>calcularMontoDescuento()</code></td>
+      <td>Define el porcentaje y tope máximo aplicable sobre la base imponible.</td>
+    </tr>
+    <tr>
+      <td><code>DescuentoDirecto</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>DescuentoFrecuencia</code>, <code>DescuentoManual</code></td>
+      <td><code>determinarPorcentaje()</code></td>
+      <td>Descuentos que se aplican inmediatamente sin evaluación de calendarios externos.</td>
+    </tr>
+    <tr>
+      <td><code>DescuentoCondicional</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>DescuentoPromocion</code>, <code>DescuentoTemporada</code></td>
+      <td><code>verificarCondicion()</code></td>
+      <td>Descuentos supeditados a validación previa (código de cupón o vigencia de fecha).</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- DOMINIO 6 -->
+<div class="domain-header">
+  <h2>DOMINIO 6: DOCUMENTOS CONTABLES Y FACTURACIÓN (4 Superclases) - Paquete: thera.gestion.servicio.tec.comprobantes</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Cierre financiero de la orden de servicio con desglose de impuestos según la normativa fiscal.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>DocumentoContable</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>ComprobanteBase</code></td>
+      <td><code>obtenerEncabezado()</code></td>
+      <td>Abstracción contable: fecha de emisión, estado contable y moneda de facturación.</td>
+    </tr>
+    <tr>
+      <td><code>ComprobanteBase</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>ComprobanteElectronico</code>, <code>ComprobanteManual</code></td>
+      <td><code>imprimirDetalle()</code><br><code>calcularImpuesto()</code></td>
+      <td>Enlaza el comprobante con la orden técnica, calculando el 18% de IGV y total neto.</td>
+    </tr>
+    <tr>
+      <td><code>ComprobanteElectronico</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Boleta</code>, <code>Factura</code></td>
+      <td><code>generarHashElectronico()</code></td>
+      <td>Maneja comprobantes digitales con firma hash (SUNAT) para clientes naturales o jurídicos.</td>
+    </tr>
+    <tr>
+      <td><code>ComprobanteManual</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>TicketInterno</code></td>
+      <td><code>generarFichaFisica()</code></td>
+      <td>Para comprobantes y proformas de consumo interno de taller sin efecto tributario.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- DOMINIO 7 -->
+<div class="domain-header">
+  <h2>DOMINIO 7: PORTAL CRM, NOTIFICACIONES Y GARANTÍAS (4 Superclases) - Paquete: thera.gestion.servicio.tec.portal</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Canales de consulta externa para clientes, seguridad postventa y comunicación de cambios de estado.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>AccesoSistema</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>PortalCRM</code>, <code>PanelAdmin</code></td>
+      <td><code>autenticarUsuario()</code></td>
+      <td>Implementa <code>IConsultable</code>. Define los puntos de entrada a la plataforma.</td>
+    </tr>
+    <tr>
+      <td><code>CanalComunicacion</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Notificacion</code></td>
+      <td><code>transmitirMensaje()</code></td>
+      <td>Implementa <code>INotificable</code>. Raíz abstracta para canales de mensajería (Email/SMS).</td>
+    </tr>
+    <tr>
+      <td><code>Notificacion</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>NotificacionAlerta</code>, <code>NotificacionEstado</code></td>
+      <td><code>redactarCuerpo()</code></td>
+      <td>Estructura el contenido: avisos de cambio de estado a cliente o alertas de demora.</td>
+    </tr>
+    <tr>
+      <td><code>Certificado</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>CertificadoCalidad</code>, <code>Garantia</code></td>
+      <td><code>imprimirCertificado()</code><br><code>esValido()</code></td>
+      <td>Implementa <code>IValidable</code>. Documentos formales post-servicio con vigencia temporal.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- DOMINIO 8 -->
+<div class="domain-header">
+  <h2>DOMINIO 8: SISTEMA DE SALIDAS Y REPORTES ANALÍTICOS (4 Superclases) - Paquete: thera.gestion.servicio.tec.reportes</h2>
+</div>
+<p style="font-size: 8.5pt;">
+Generación de fichas operativas y tableros gerenciales para la toma de decisiones basada en datos.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Superclase</th>
+      <th style="width: 14%;">Tipo</th>
+      <th style="width: 24%;">Clases Hijas Directas</th>
+      <th style="width: 20%;">Método Polimórfico Clave</th>
+      <th style="width: 20%;">Justificación en el Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>DocumentoSalida</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>Certificado</code>, <code>ReporteBase</code></td>
+      <td><code>generarReporte()</code></td>
+      <td>Implementa <code>IReportable</code>. Raíz de todo documento exportable o imprimible.</td>
+    </tr>
+    <tr>
+      <td><code>ReporteBase</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>ReporteOperativo</code>, <code>ReporteGerencial</code></td>
+      <td><code>estructurarCuerpo()</code></td>
+      <td>Superclase analítica con metadatos de autor, fecha de emisión y resumen.</td>
+    </tr>
+    <tr>
+      <td><code>ReporteOperativo</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>ReporteInventario</code>, <code>ReporteOrden</code></td>
+      <td><code>consolidarOperaciones()</code></td>
+      <td>Especialización para control del taller: hoja de orden y existencias de stock.</td>
+    </tr>
+    <tr>
+      <td><code>ReporteGerencial</code></td>
+      <td><span class="badge badge-super">Abstracta</span></td>
+      <td><code>ReporteDesempeno</code>, <code>ReporteVentas</code></td>
+      <td><code>calcularMetricasKpi()</code></td>
+      <td>Especialización ejecutiva: productividad de técnicos y facturación total acumulada.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-tech">
+  <div class="callout-title">Resumen Numérico Verificado</div>
+  Dominio 1 (4) + Dominio 2 (3) + Dominio 3 (2) + Dominio 4 (4) + Dominio 5 (5) + Dominio 6 (4) + Dominio 7 (4) + Dominio 8 (4) = <strong>Exactamente 30 Superclases</strong>.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 16px 0;">
+
+<!-- ========================================== -->
+<!-- SECCIÓN 2: INTERFACES Y ENUMS -->
+<!-- ========================================== -->
+<h1>2. Contratos de Software: Las 6 Interfaces y 4 Enumeradores</h1>
+
+<h2>2.1 Las 6 Interfaces Fundamentales (Desacoplamiento Estricto)</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 18%;">Interfaz</th>
+      <th style="width: 32%;">Métodos del Contrato</th>
+      <th style="width: 25%;">Clases Implementadoras</th>
+      <th style="width: 25%;">Principio de Diseño</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ICalculable</code></td>
+      <td><code>double calcularTotal()</code><br><code>double calcularSubtotal()</code><br><code>double aplicarDescuento(double p)</code></td>
+      <td><code>OrdenServicio</code><br>(y sus subclases)</td>
+      <td>Garantiza que cualquier tipo de orden calcule costos sin importar su especialidad.</td>
+    </tr>
+    <tr>
+      <td><code>IConsultable</code></td>
+      <td><code>Object buscarPorId(String id)</code><br><code>boolean existePorId(String id)</code><br><code>int contarRegistros()</code></td>
+      <td><code>GestorBase</code> (todos los gestores), <code>AccesoSistema</code> (PortalCRM)</td>
+      <td>Estandariza los métodos de búsqueda y verificación en cualquier colección de datos.</td>
+    </tr>
+    <tr>
+      <td><code>IGestionable</code></td>
+      <td><code>boolean registrar(Object entidad)</code><br><code>boolean actualizar(Object entidad)</code><br><code>boolean eliminar(String id)</code></td>
+      <td><code>GestorBase</code><br>(todos los gestores)</td>
+      <td>Contrato CRUD universal que define las operaciones de manipulación de registros.</td>
+    </tr>
+    <tr>
+      <td><code>INotificable</code></td>
+      <td><code>void enviarNotificacion(String msg)</code><br><code>String obtenerCanalPreferido()</code></td>
+      <td><code>ClienteBase</code>, <code>CanalComunicacion</code></td>
+      <td>Desacopla el destinatario del medio de transmisión del mensaje (SMS, Email, Portal).</td>
+    </tr>
+    <tr>
+      <td><code>IReportable</code></td>
+      <td><code>String generarReporte()</code><br><code>void imprimirDetalle()</code></td>
+      <td><code>OrdenServicio</code>, <code>DocumentoSalida</code>, <code>InventarioRepuestos</code></td>
+      <td>Permite que cualquier objeto del taller se imprima formateado en consola o reporte.</td>
+    </tr>
+    <tr>
+      <td><code>IValidable</code></td>
+      <td><code>boolean esValido()</code><br><code>String obtenerMensajeError()</code></td>
+      <td><code>ClienteBase</code>, <code>Certificado</code> (Garantia, Calidad)</td>
+      <td>Asegura el cumplimiento de reglas antes de transaccionar (DNI/RUC o fecha de garantía).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2.2 Los 4 Enumeradores (Tipado Fuerte del Negocio)</h2>
+<div class="grid-2">
+  <div class="metric-card" style="text-align: left; padding: 10px;">
+    <strong style="color: #0369a1;">EstadoOrden (ordenes)</strong>
+    <p style="font-size: 8pt; margin: 4px 0 0 0;"><code>REGISTRADO</code>, <code>EN_DIAGNOSTICO</code>, <code>ESPERA_REPUESTO</code>, <code>EN_REPARACION</code>, <code>LISTO_ENTREGA</code>, <code>ENTREGADO</code>, <code>CANCELADO</code>.<br><strong>Función:</strong> Gobierna la máquina de estados y las transiciones del taller.</p>
+  </div>
+  <div class="metric-card" style="text-align: left; padding: 10px;">
+    <strong style="color: #0369a1;">MetodoPago (enums)</strong>
+    <p style="font-size: 8pt; margin: 4px 0 0 0;"><code>EFECTIVO</code>, <code>TARJETA_DEBITO</code>, <code>TARJETA_CREDITO</code>, <code>TRANSFERENCIA</code>, <code>YAPE</code>, <code>PLIN</code>.<br><strong>Función:</strong> Registra las pasarelas y métodos de pago aceptados en caja.</p>
+  </div>
+  <div class="metric-card" style="text-align: left; padding: 10px;">
+    <strong style="color: #0369a1;">NivelCliente (enums)</strong>
+    <p style="font-size: 8pt; margin: 4px 0 0 0;"><code>BRONCE</code> (nuevo), <code>PLATA</code> (recurrente), <code>ORO</code> (frecuente), <code>PLATINUM</code> (corporativo VIP).<br><strong>Función:</strong> Segmentación automática para el motor de descuentos.</p>
+  </div>
+  <div class="metric-card" style="text-align: left; padding: 10px;">
+    <strong style="color: #0369a1;">TipoComprobante (enums)</strong>
+    <p style="font-size: 8pt; margin: 4px 0 0 0;"><code>BOLETA</code>, <code>FACTURA</code>, <code>TICKET_INTERNO</code>, <code>GUIA_REMISION</code>.<br><strong>Función:</strong> Categoriza legal y tributariamente la emisión de comprobantes.</p>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- SECCIÓN 3: DEMOSTRACIÓN DEL FLUJO MAIN -->
+<!-- ========================================== -->
+<h1>3. Demostración Práctica del Flujo en GESTIONSERVICIOTEC.java</h1>
+<p>
+El método principal (<code>main</code>) es el hilo conductor de toda la sustentación. Muestra cómo colaboran las 30 superclases para resolver un caso real de negocio a través de <strong>11 pasos consecutivos</strong>:
+</p>
+
+<pre><code>public class GESTIONSERVICIOTEC {
+    public static void main(String[] args) {
+
+        // PASO 1: INICIALIZAR GESTORES (Infraestructura de persistencia en memoria)
+        GestorServicioTecnico gestorOrdenes  = new GestorServicioTecnico(100);
+        GestorClientes        gestorClientes = new GestorClientes(200);
+        GestorTecnicos        gestorTecnicos = new GestorTecnicos(20);
+        InventarioRepuestos   inventario     = new InventarioRepuestos(50);
+        GestorPromociones     gestorPromos   = new GestorPromociones(10);
+        PortalCRM             portal         = new PortalCRM(gestorOrdenes);
+
+        // PASO 2: REGISTRAR PERSONAS Y EQUIPO FÍSICO
+        Cliente cli1 = new Cliente("72938471", "Jorge Ramirez", "981234567", "jorge@gmail.com", "Calle Real 123");
+        Tecnico tec1 = new Tecnico("45678901", "Adrian Alvarado", "994567812", "azalva@taller.com", "Laptops y Placas");
+        Equipo  eq1  = new Equipo("Laptop", "ASUS", "TUF Gaming F15", "SN-998822", "Con cargador, sin caja");
+
+        // PASO 3: APERTURA DE ORDEN Y PROCESAMIENTO TÉCNICO INICIAL
+        OrdenServicio ord = gestorOrdenes.registrarOrden(cli1, eq1, "No da imagen en pantalla y calienta en la base");
+
+        // PASO 4: DIAGNÓSTICO Y ASIGNACIÓN DE TÉCNICO ESPECIALISTA
+        ord.asignarTecnico(tec1, "Admin");
+        ord.registrarDiagnostico("Falla de chip integrado y cambio de pasta térmica", 90.0, tec1.getNombre());
+
+        // PASO 5: DESPACHO DE REPUESTOS DESDE ALMACÉN (Validación de Stock)
+        Repuesto r1 = inventario.despacharRepuesto("REP-01", 1);
+        if (r1 != null) ord.agregarRepuesto(r1);
+
+        // PASO 6: AVANCE EN LA MÁQUINA DE ESTADOS (Auditoría con Cambios y RegistroSeguimiento)
+        ord.cambiarEstado(EstadoOrden.EN_REPARACION, "Reballing y reemplazo de pad termico", tec1.getNombre());
+        ord.cambiarEstado(EstadoOrden.LISTO_ENTREGA, "Pruebas de estres 4K superadas", tec1.getNombre());
+
+        // PASO 7: APLICACIÓN DE DESCUENTO POR FRECUENCIA (Motor Polimórfico de Descuentos)
+        double totalFinal = gestorPromos.calcularTotalConDescuento(ord, gestorOrdenes);
+
+        // PASO 8: EMISIÓN POLIMÓRFICA DE COMPROBANTE (Boleta Electrónica con Hash SUNAT)
+        ComprobanteBase comprobante = new Boleta("B001-0001", ord, MetodoPago.YAPE, totalFinal, cli1.getId());
+        comprobante.imprimirDetalle();
+
+        // PASO 9: EMISIÓN DE PÓLIZA DE GARANTÍA (Postventa con Validez Temporal de 60 Días)
+        Garantia garantia = new Garantia("GAR-001", ord, 60, "No cubre caidas ni derrame de liquidos");
+        garantia.imprimirCertificado();
+
+        // PASO 10: CONSULTA EXTERNA DESDE EL PORTAL CRM (Cliente consulta con DNI y Código)
+        portal.consultarSeguimientoCliente("ORD-1001", "72938471");
+
+        // PASO 11: GENERACIÓN DE REPORTES OPERATIVOS Y GERENCIALES
+        ReporteOrden rptOrden = new ReporteOrden(ord, tec1.getNombre());
+        rptOrden.imprimirDetalle();
+        ReporteInventario rptInv = new ReporteInventario(inventario, "Admin", 3);
+        rptInv.imprimirDetalle();
+    }
+}</code></pre>
+
+<hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 16px 0;">
+
+<!-- ========================================== -->
+<!-- SECCIÓN 4: BANCO MAESTRO DE PREGUNTAS -->
+<!-- ========================================== -->
+<h1>4. Banco Maestro de Preguntas y Respuestas Técnicas para el Jurado</h1>
+<p>
+Cualquier integrante del equipo debe estar preparado para responder con precisión quirúrgica cualquiera de estas 12 preguntas:
+</p>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P1. ¿Por qué el proyecto cuenta con 30 superclases? ¿No es sobreingeniería?</div>
+  <strong>Respuesta técnica:</strong> <em>"No, responde al Principio de Responsabilidad Única (SRP) y a la modelación granular del negocio. Dividimos el sistema en 8 dominios independientes: identidad, personas, elementos físicos, trazabilidad/órdenes, almacenamiento, descuentos, facturación y reportes. Esta jerarquía desacoplada permite que cada superclase aporte atributos y contratos específicos sin que ninguna clase asuma responsabilidades ajenas."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P2. ¿Qué diferencia conceptual y práctica existe en su código entre una Clase Abstracta y una Interfaz?</div>
+  <strong>Respuesta técnica:</strong> <em>"Una interfaz (como <code>ICalculable</code> o <code>IConsultable</code>) define un <strong>contrato puro de comportamiento</strong>: qué métodos debe implementar una clase, sin compartir estado. Una clase abstracta (como <code>GestorBase</code> o <code>ComprobanteBase</code>) modela una <strong>relación de identidad y reutilización de código</strong>: contiene atributos compartidos (capacidad, correlativo, fechas, orden asociada) y métodos concretos que sus clases hijas heredan directamente."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P3. ¿Cómo se demuestra el Polimorfismo Dinámico en el módulo de Descuentos?</div>
+  <strong>Respuesta técnica:</strong> <em>"En <code>GestorPromociones</code> se invoca <code>calcularMontoDescuento()</code> sobre la referencia abstracta <code>Descuento</code>. En tiempo de ejecución (Dynamic Dispatch), la JVM ejecuta la lógica concreta: si es <code>DescuentoFrecuencia</code> revisa el historial del cliente; si es <code>DescuentoTemporada</code> valida fechas festivas; y si es <code>DescuentoPromocion</code> corrobora el cupón. Esto cumple el Principio Abierto/Cerrado (OCP), pues podemos agregar nuevos descuentos sin modificar el gestor."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P4. ¿Por qué utilizaron arreglos estándar (Tipo[]) con contador en lugar de colecciones como ArrayList?</div>
+  <strong>Respuesta técnica:</strong> <em>"Para evidenciar control manual de estructuras de datos fundamentales y eficiencia de recursos. Al definir una <code>capacidadMaxima</code> y un puntero <code>contador</code> en <code>GestorBase</code> y <code>OrdenServicio</code>, gestionamos la memoria conscientemente, controlamos desbordamientos (overflow) e implementamos algoritmos de búsqueda lineal directa sin depender de sobrecargas de clases utilitarias externas."</em>
+</div>
+
+<div class="page-break"></div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P5. ¿Por qué Cambios extiende de EntidadRastreable y OrdenServicio extiende de Cambios?</div>
+  <strong>Respuesta técnica:</strong> <em>"Es una jerarquía de especialización progresiva: <code>EntidadRastreable</code> aporta los metadatos temporales universales (fecha de creación y si está activo). <code>Cambios</code> añade la máquina de estados con el arreglo de <code>RegistroSeguimiento</code>, costo de mano de obra y diagnóstico. Finalmente, <code>OrdenServicio</code> incorpora los actores de negocio: el cliente, el equipo físico, el técnico asignado y la lista de repuestos. Cada nivel añade una capa de abstracción limpia sin sobrecargar la raíz."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P6. ¿Cómo se evidencia el Principio de Inversión de Dependencias (DIP) en el PortalCRM?</div>
+  <strong>Respuesta técnica:</strong> <em>"<code>PortalCRM</code> no se acopla a una implementación rígida; recibe la referencia de <code>GestorServicioTecnico</code> a través del contrato <code>IConsultable</code>. Si mañana sustituimos la colección en memoria por un repositorio de base de datos MySQL o un servicio web REST, el portal continuará funcionando sin alterar su código fuente."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P7. ¿Cómo se aplica el Polimorfismo entre Boleta y Factura?</div>
+  <strong>Respuesta técnica:</strong> <em>"Ambas clases extienden de <code>ComprobanteElectronico</code>. En el método <code>imprimirDetalle()</code>, la <code>Boleta</code> toma el DNI de una persona natural e imprime el total con el IGV implícito; la <code>Factura</code> toma el RUC de un <code>ClienteEmpresarial</code>, desglosa formalmente la base imponible y el 18% de IGV por separado para efectos de crédito fiscal ante SUNAT."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P8. ¿Por qué la Garantía implementa la interfaz IValidable?</div>
+  <strong>Respuesta técnica:</strong> <em>"Porque una póliza de garantía está sujeta a vigencia temporal (díasValidez: 30, 60 o 90 días) y condiciones de exclusión (como daño por líquidos o sellos rotos). El método <code>esValido()</code> permite auditar programáticamente si el cliente tiene derecho a servicio postventa sin costo."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P9. ¿Cómo evita el sistema que se asigne un repuesto sin stock?</div>
+  <strong>Respuesta técnica:</strong> <em>"A través del método <code>despacharRepuesto(codigo, cantidad)</code> en <code>InventarioRepuestos</code>. Antes de que <code>ord.agregarRepuesto(r)</code> agregue el repuesto a la orden, el gestor de inventario comprueba si el stock es suficiente; si no lo es, emite una alerta y devuelve <code>null</code>, impidiendo inconsistencias físicas."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P10. ¿Por qué ClienteBase implementa INotificable e IValidable, pero Persona no?</div>
+  <strong>Respuesta técnica:</strong> <em>"Por el Principio de Segregación de Interfaces (ISP). Los clientes externos requieren validación de identidad (DNI o RUC) y suscripción a canales de mensajería (SMS/Email). El personal interno (técnicos, administradores) se autentica mediante legajos internos, por lo que no deben ser forzados a implementar contratos que no corresponden a su naturaleza."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P11. ¿Qué función cumple el Enum EstadoOrden en la clase Cambios?</div>
+  <strong>Respuesta técnica:</strong> <em>"Proporciona tipado fuerte (type safety). Evita el uso de cadenas de texto libres o números mágicos para definir el estado del servicio. Con el enum, solo se admiten los estados válidos (REGISTRADO, EN_DIAGNOSTICO, ESPERA_REPUESTO, EN_REPARACION, LISTO_ENTREGA, ENTREGADO, CANCELADO), previniendo estados inconsistentes."</em>
+</div>
+
+<div class="callout callout-qa">
+  <div class="callout-title">P12. ¿Por qué DocumentoSalida es la superclase de Certificado y ReporteBase?</div>
+  <strong>Respuesta técnica:</strong> <em>"Porque ambos representan documentos oficiales generados por el sistema hacia el exterior (impresos o en pantalla). Comparten la implementación de <code>IReportable</code>, título, fecha de emisión y formato estandarizado de encabezado."</em>
+</div>
+
+<hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 16px 0;">
+
+<!-- ========================================== -->
+<!-- SECCIÓN 5: RECOMENDACIONES DE ORO -->
+<!-- ========================================== -->
+<h1>5. Recomendaciones de Oro para la Sustentación Grupal</h1>
+<div class="callout callout-warn">
+  <div class="callout-title">Protocolo de Exposición para los 3 Integrantes</div>
+  <ul>
+    <li><strong>Dominio Compartido:</strong> No dividirse el conocimiento con la mentalidad de <em>'eso no me toca a mí'</em>. Si el profesor le pregunta al Integrante 1 sobre la <code>Factura</code> o al Integrante 3 sobre el <code>Elemento</code>, la respuesta debe ser inmediata y segura.</li>
+    <li><strong>Vocabulario Técnico Riguroso:</strong> Utilizar siempre los términos formales de la POO: <em>'Ligadura dinámica (Dynamic Dispatch)'</em>, <em>'Sobrescritura (@Override)'</em>, <em>'Contrato de interfaz'</em>, <em>'Especialización de clases'</em>, <em>'Principio Abierto/Cerrado (OCP)'</em> y <em>'Sustitución de Liskov (LSP)'</em>.</li>
+    <li><strong>NetBeans en Pantalla:</strong> Mantener el proyecto abierto en NetBeans con el archivo [`GESTIONSERVICIOTEC.java`](file:///c:/Users/User/OneDrive/Imágenes/SERVICIO-TEC-CRM/SERVICIO-TEC-CRM/src/main/java/thera/gestion/servicio/tec/GESTIONSERVICIOTEC.java) en la pestaña principal, y listo para navegar a cualquier superclase usando <code>Ctrl + Clic</code>.</li>
+    <li><strong>Respaldo Mutuo:</strong> Si un integrante titubea ante una pregunta compleja del jurado, cualquiera de los otros dos puede complementar cordialmente: <em>'Complementando lo que menciona mi compañero...'</em>, demostrando solidez como equipo.</li>
+  </ul>
+</div>
+
+</body>
+</html>
