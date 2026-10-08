@@ -4,12 +4,6 @@ import Ordenes.OrdenServicio;
 import Enums.TipoComprobante;
 import Enums.MetodoPago;
 
-/**
- * Superclase para comprobantes de pago de servicios técnicos.
- *
- * HERENCIA: extiende DocumentoContable.
- * HIJOS DIRECTOS: ComprobanteElectronico, ComprobanteManual
- */
 public abstract class ComprobanteBase extends DocumentoContable {
 
     protected String serieNumero;

@@ -3,11 +3,6 @@ package Ordenes;
 import Personas.ClienteBase;
 import Equipo.Equipo;
 
-/**
- * Orden orientada a reparación de fallas críticas y cambio de componentes.
- *
- * HERENCIA: extiende OrdenServicio.
- */
 public class OrdenReparacion extends OrdenServicio {
 
     private String nivelGravedad;

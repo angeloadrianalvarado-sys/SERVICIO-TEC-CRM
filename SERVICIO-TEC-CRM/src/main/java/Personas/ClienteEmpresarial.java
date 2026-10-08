@@ -1,11 +1,5 @@
 package Personas;
 
-/**
- * Representa a un Cliente Corporativo o Empresa (persona jurídica).
- * Requiere RUC y razón social para facturación.
- *
- * HERENCIA: extiende ClienteBase.
- */
 public class ClienteEmpresarial extends ClienteBase {
 
     private String ruc;

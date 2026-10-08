@@ -4,11 +4,6 @@ import Gestores.GestorServicioTecnico;
 import Ordenes.OrdenServicio;
 import Enums.EstadoOrden;
 
-/**
- * Portal web o móvil de consulta y seguimiento orientado al Cliente final.
- *
- * HERENCIA: extiende AccesoSistema.
- */
 public class PortalCRM extends AccesoSistema {
 
     private GestorServicioTecnico gestorOrdenes;

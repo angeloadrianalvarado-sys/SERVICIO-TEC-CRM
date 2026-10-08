@@ -1,10 +1,5 @@
 package Gestores;
 
-/**
- * Gestor encargado del catálogo y contacto de proveedores de repuestos.
- *
- * HERENCIA: extiende GestorAlmacen.
- */
 public class GestorProveedores extends GestorAlmacen {
 
     private String[] listaProveedores;

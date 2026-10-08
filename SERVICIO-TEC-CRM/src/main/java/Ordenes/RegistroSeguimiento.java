@@ -3,11 +3,6 @@ package Ordenes;
 import Base.RegistroAuditoria;
 import Enums.EstadoOrden;
 
-/**
- * Registra cada cambio de estado que ocurre sobre una orden de servicio.
- *
- * HERENCIA: extiende RegistroAuditoria.
- */
 public class RegistroSeguimiento extends RegistroAuditoria {
 
     private EstadoOrden estado;

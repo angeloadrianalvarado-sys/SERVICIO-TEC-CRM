@@ -1,12 +1,5 @@
 package Base;
 
-/**
- * Superclase raíz de toda la jerarquía de entidades del sistema.
- * Cualquier objeto que pueda ser identificado por un código o ID
- * desciende de esta clase.
- *
- * HIJOS DIRECTOS: Persona, Elemento
- */
 public abstract class EntidadBase {
 
     protected String id;
@@ -19,7 +12,6 @@ public abstract class EntidadBase {
 
     public String getNombre() { return null; }
 
-    /** Retorna una descripción textual de la entidad. (POLIMORFISMO) */
     public abstract String obtenerDescripcion();
 
     @Override

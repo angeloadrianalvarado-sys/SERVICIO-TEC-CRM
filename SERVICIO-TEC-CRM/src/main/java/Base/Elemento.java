@@ -1,13 +1,5 @@
 package Base;
 
-/**
- * Superclase abstracta para todos los elementos físicos del sistema
- * (equipos y repuestos). Agrupa atributos comunes como código, descripción
- * y estado físico.
- *
- * HERENCIA: extiende EntidadBase.
- * HIJOS DIRECTOS: Equipo, Repuesto
- */
 public abstract class Elemento extends EntidadBase {
 
     protected String codigo;
@@ -26,7 +18,6 @@ public abstract class Elemento extends EntidadBase {
 
     public void setDisponible(boolean disponible) { }
 
-    /** Retorna la ficha técnica del elemento. (POLIMORFISMO) */
     public abstract String getDetalle();
 
     @Override

@@ -1,10 +1,5 @@
 package Personas;
 
-/**
- * Representa a un Administrador del sistema.
- *
- * HERENCIA: extiende PersonalInterno.
- */
 public class Administrador extends PersonalInterno {
 
     private String contrasena;

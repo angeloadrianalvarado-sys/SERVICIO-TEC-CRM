@@ -4,13 +4,6 @@ import Enums.NivelCliente;
 import Interfaces.INotificable;
 import Interfaces.IValidable;
 
-/**
- * Superclase abstracta para todos los tipos de cliente del taller.
- * Agrupa atributos comunes: dirección, nivel y contador de servicios.
- *
- * HERENCIA: extiende Persona.
- * HIJOS DIRECTOS: Cliente, ClienteEmpresarial
- */
 public abstract class ClienteBase extends Persona implements INotificable, IValidable {
 
     protected String direccion;
@@ -32,10 +25,8 @@ public abstract class ClienteBase extends Persona implements INotificable, IVali
 
     public void actualizarNivel() { }
 
-    /** Retorna el tipo de cliente (natural o empresarial). (POLIMORFISMO) */
     public abstract String getTipoCliente();
 
-    /** Retorna el documento principal de identificación. (POLIMORFISMO) */
     public abstract String getDocumentoPrincipal();
 
     @Override

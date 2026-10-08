@@ -2,11 +2,6 @@ package Descuentos;
 
 import Personas.ClienteBase;
 
-/**
- * Descuento por fidelidad y visitas acumuladas del cliente.
- *
- * HERENCIA: extiende DescuentoDirecto.
- */
 public class DescuentoFrecuencia extends DescuentoDirecto {
 
     private ClienteBase cliente;

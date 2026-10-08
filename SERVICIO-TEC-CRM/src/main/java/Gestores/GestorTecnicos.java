@@ -2,11 +2,6 @@ package Gestores;
 
 import Personas.Tecnico;
 
-/**
- * Gestiona el registro, disponibilidad y consulta de los técnicos.
- *
- * HERENCIA: extiende GestorPersonas.
- */
 public class GestorTecnicos extends GestorPersonas {
 
     private Tecnico[] listaTecnicos;

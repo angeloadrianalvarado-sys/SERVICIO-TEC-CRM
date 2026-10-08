@@ -2,11 +2,6 @@ package Descuentos;
 
 import Interfaces.ICalculable;
 
-/**
- * Superclase raíz para cualquier beneficio comercial otorgado a clientes.
- *
- * HIJOS DIRECTOS: Descuento
- */
 public abstract class BeneficioBase implements ICalculable {
 
     protected String idBeneficio;
@@ -28,7 +23,6 @@ public abstract class BeneficioBase implements ICalculable {
     @Override
     public double aplicarDescuento(double porcentaje) { return 0; }
 
-    /** Retorna el valor nominal o porcentaje del beneficio. (POLIMORFISMO) */
     public abstract double obtenerValorBeneficio();
 
     public String getIdBeneficio() { return idBeneficio; }

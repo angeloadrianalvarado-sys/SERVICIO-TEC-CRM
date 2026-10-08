@@ -1,12 +1,5 @@
 package Personas;
 
-/**
- * Superclase abstracta para todo el personal interno del taller:
- * técnicos y administradores. Agrega credenciales y datos laborales.
- *
- * HERENCIA: extiende Persona.
- * HIJOS DIRECTOS: Tecnico, Administrador
- */
 public abstract class PersonalInterno extends Persona {
 
     protected String usuario;
@@ -26,6 +19,5 @@ public abstract class PersonalInterno extends Persona {
 
     public void setDisponible(boolean disponible) { }
 
-    /** Retorna el área de trabajo del personal. (POLIMORFISMO) */
     public abstract String getAreaTrabajo();
 }

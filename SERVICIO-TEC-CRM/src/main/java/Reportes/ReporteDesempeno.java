@@ -1,10 +1,5 @@
 package Reportes;
 
-/**
- * Reporte de productividad de técnicos: cantidad de órdenes resueltas y tiempos de entrega.
- *
- * HERENCIA: extiende ReporteGerencial.
- */
 public class ReporteDesempeno extends ReporteGerencial {
 
     private int ordenesExitosas;

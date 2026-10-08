@@ -1,11 +1,5 @@
 package Descuentos;
 
-/**
- * Superclase para descuentos que se aplican inmediatamente sin depender de fechas o cupones.
- *
- * HERENCIA: extiende Descuento.
- * HIJOS DIRECTOS: DescuentoFrecuencia, DescuentoManual
- */
 public abstract class DescuentoDirecto extends Descuento {
 
     protected String motivoAplicacion;

@@ -4,11 +4,6 @@ import Personas.ClienteBase;
 import Ordenes.OrdenServicio;
 import Gestores.GestorServicioTecnico;
 
-/**
- * Gestor encargado de evaluar y aplicar descuentos sobre las órdenes.
- *
- * HERENCIA: extiende GestorPromocionesBase.
- */
 public class GestorPromociones extends GestorPromocionesBase {
 
     private Descuento[] descuentosDisponibles;

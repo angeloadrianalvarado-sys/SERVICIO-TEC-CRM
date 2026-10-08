@@ -5,11 +5,6 @@ import Personas.ClienteBase;
 import Equipo.Equipo;
 import Enums.EstadoOrden;
 
-/**
- * Gestiona todas las órdenes de servicio activas en el taller.
- *
- * HERENCIA: extiende GestorOperaciones.
- */
 public class GestorServicioTecnico extends GestorOperaciones {
 
     private OrdenServicio[] listaOrdenes;

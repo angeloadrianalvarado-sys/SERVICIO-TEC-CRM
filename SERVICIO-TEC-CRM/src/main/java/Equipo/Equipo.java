@@ -2,11 +2,6 @@ package Equipo;
 
 import Base.Elemento;
 
-/**
- * Representa el equipo o dispositivo ingresado para reparación.
- *
- * HERENCIA: extiende Elemento.
- */
 public class Equipo extends Elemento {
 
     private String tipo;

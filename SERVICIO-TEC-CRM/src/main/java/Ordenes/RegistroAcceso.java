@@ -2,11 +2,6 @@ package Ordenes;
 
 import Base.RegistroAuditoria;
 
-/**
- * Registra accesos y consultas al sistema (auditoría de inicio de sesión o consulta web).
- *
- * HERENCIA: extiende RegistroAuditoria.
- */
 public class RegistroAcceso extends RegistroAuditoria {
 
     private String direccionIp;

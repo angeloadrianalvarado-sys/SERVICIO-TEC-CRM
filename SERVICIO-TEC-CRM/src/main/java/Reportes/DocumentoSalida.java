@@ -2,11 +2,6 @@ package Reportes;
 
 import Interfaces.IReportable;
 
-/**
- * Superclase raíz para cualquier documento generado para impresión, visualización o entrega.
- *
- * HIJOS DIRECTOS: ReporteBase, Certificado
- */
 public abstract class DocumentoSalida implements IReportable {
 
     protected String encabezado;
@@ -23,7 +18,6 @@ public abstract class DocumentoSalida implements IReportable {
     @Override
     public String generarReporte() { return null; }
 
-    /** Retorna el formato de pie de página para impresión. (POLIMORFISMO) */
     public abstract String obtenerPiePagina();
 
     public String getEncabezado() { return encabezado; }

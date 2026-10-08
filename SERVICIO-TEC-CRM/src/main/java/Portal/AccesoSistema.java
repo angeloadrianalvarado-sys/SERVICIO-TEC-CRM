@@ -2,11 +2,6 @@ package Portal;
 
 import Interfaces.IConsultable;
 
-/**
- * Superclase para interfaces de acceso e interacción de usuarios con el sistema (Portal cliente o Panel admin).
- *
- * HIJOS DIRECTOS: PortalCRM, PanelAdmin
- */
 public abstract class AccesoSistema implements IConsultable {
 
     protected String nombreModulo;
@@ -26,7 +21,6 @@ public abstract class AccesoSistema implements IConsultable {
     @Override
     public int contarRegistros() { return 0; }
 
-    /** Muestra el menú principal de este módulo de acceso. (POLIMORFISMO) */
     public abstract void mostrarMenuPrincipal();
 
     public String getNombreModulo() { return nombreModulo; }

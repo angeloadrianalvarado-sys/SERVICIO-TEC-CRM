@@ -3,11 +3,6 @@ package Comprobantes;
 import Interfaces.ICalculable;
 import Interfaces.IReportable;
 
-/**
- * Superclase raíz para cualquier documento con validez contable o tributaria.
- *
- * HIJOS DIRECTOS: ComprobanteBase
- */
 public abstract class DocumentoContable implements ICalculable, IReportable {
 
     protected String numeroRegistroContable;
@@ -30,7 +25,6 @@ public abstract class DocumentoContable implements ICalculable, IReportable {
     @Override
     public String generarReporte() { return null; }
 
-    /** Valida los requisitos contables básicos del documento. (POLIMORFISMO) */
     public abstract boolean esValidoContablemente();
 
     public String getNumeroRegistroContable() { return numeroRegistroContable; }

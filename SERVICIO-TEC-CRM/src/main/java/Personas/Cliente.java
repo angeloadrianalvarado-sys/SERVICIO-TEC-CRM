@@ -1,11 +1,5 @@
 package Personas;
 
-/**
- * Representa a un Cliente particular (persona natural).
- *
- * HERENCIA: extiende ClienteBase.
- * COMPOSICIÓN: contiene CategoriaCliente.
- */
 public class Cliente extends ClienteBase {
 
     private String dni;

@@ -3,11 +3,6 @@ package Portal;
 import Gestores.GestorServicioTecnico;
 import Repuestos.InventarioRepuestos;
 
-/**
- * Panel de administración interno para técnicos, supervisores y gerentes.
- *
- * HERENCIA: extiende AccesoSistema.
- */
 public class PanelAdmin extends AccesoSistema {
 
     private GestorServicioTecnico gestorOrdenes;

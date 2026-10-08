@@ -4,11 +4,6 @@ import Ordenes.OrdenServicio;
 import Enums.TipoComprobante;
 import Enums.MetodoPago;
 
-/**
- * Representa una Factura Electrónica emitida a empresa con RUC.
- *
- * HERENCIA: extiende ComprobanteElectronico.
- */
 public class Factura extends ComprobanteElectronico {
 
     private String rucEmpresa;

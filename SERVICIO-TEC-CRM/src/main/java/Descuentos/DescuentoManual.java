@@ -1,10 +1,5 @@
 package Descuentos;
 
-/**
- * Descuento aplicado manualmente por un administrador o supervisor.
- *
- * HERENCIA: extiende DescuentoDirecto.
- */
 public class DescuentoManual extends DescuentoDirecto {
 
     private String usuarioAutoriza;

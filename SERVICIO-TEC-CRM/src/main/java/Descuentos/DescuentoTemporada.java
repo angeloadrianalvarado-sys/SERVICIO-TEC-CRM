@@ -2,11 +2,6 @@ package Descuentos;
 
 import java.time.LocalDate;
 
-/**
- * Descuento automático por temporada del año (Navidad, Fiestas Patrias, Cyber).
- *
- * HERENCIA: extiende DescuentoCondicional.
- */
 public class DescuentoTemporada extends DescuentoCondicional {
 
     private String nombreTemporada;

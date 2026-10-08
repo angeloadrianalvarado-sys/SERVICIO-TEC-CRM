@@ -2,12 +2,6 @@ package Portal;
 
 import Personas.ClienteBase;
 
-/**
- * Superclase para notificaciones enviadas a clientes o técnicos.
- *
- * HERENCIA: extiende CanalComunicacion.
- * HIJOS DIRECTOS: NotificacionEstado, NotificacionAlerta
- */
 public abstract class Notificacion extends CanalComunicacion {
 
     protected String id;

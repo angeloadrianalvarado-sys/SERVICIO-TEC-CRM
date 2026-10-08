@@ -1,11 +1,5 @@
 package Reportes;
 
-/**
- * Superclase para reportes estadísticos u operativos del sistema.
- *
- * HERENCIA: extiende DocumentoSalida.
- * HIJOS DIRECTOS: ReporteOperativo, ReporteGerencial
- */
 public abstract class ReporteBase extends DocumentoSalida {
 
     protected String titulo;

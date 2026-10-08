@@ -7,12 +7,6 @@ import Repuestos.Repuesto;
 import Interfaces.ICalculable;
 import Interfaces.IReportable;
 
-/**
- * Superclase para órdenes de trabajo técnico.
- *
- * HERENCIA: extiende Cambios.
- * HIJOS DIRECTOS: OrdenReparacion, OrdenMantenimiento
- */
 public class OrdenServicio extends Cambios implements ICalculable, IReportable {
 
     protected String codigo;
@@ -50,7 +44,6 @@ public class OrdenServicio extends Cambios implements ICalculable, IReportable {
 
     public boolean agregarRepuesto(Repuesto r) { return false; }
 
-    /** Tipo de servicio técnico específico. (POLIMORFISMO) */
     public String getTipoServicio() { return "SERVICIO_GENERAL"; }
 
     public String getCodigo() { return codigo; }

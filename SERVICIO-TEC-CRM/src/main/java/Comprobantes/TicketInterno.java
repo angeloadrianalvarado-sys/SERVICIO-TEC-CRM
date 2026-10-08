@@ -4,11 +4,6 @@ import Ordenes.OrdenServicio;
 import Enums.TipoComprobante;
 import Enums.MetodoPago;
 
-/**
- * Ticket de consumo interno o recibo de caja chica para taller.
- *
- * HERENCIA: extiende ComprobanteManual.
- */
 public class TicketInterno extends ComprobanteManual {
 
     private String cajaDespacho;

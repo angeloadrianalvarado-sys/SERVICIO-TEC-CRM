@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Manual Funcional y Operativo - SERVICIO-TEC-CRM en Producción</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 14mm 14mm 14mm;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color: #0f172a;
+    background-color: #ffffff;
+    line-height: 1.45;
+    font-size: 9.5pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 255mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    page-break-after: always;
+    padding: 30px 24px;
+    border: 2px solid #0284c7;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 35%, #f8fafc 100%);
+  }
+
+  .cover-header {
+    text-align: center;
+    border-bottom: 3px solid #0284c7;
+    padding-bottom: 18px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background-color: #0284c7;
+    color: white;
+    font-weight: 700;
+    font-size: 11pt;
+    padding: 6px 18px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .cover-title {
+    font-size: 24pt;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.15;
+    margin: 8px 0;
+  }
+
+  .cover-subtitle {
+    font-size: 13pt;
+    color: #0369a1;
+    font-weight: 600;
+    margin: 6px 0 0 0;
+  }
+
+  .cover-desc {
+    background-color: #ffffff;
+    border: 1px solid #bae6fd;
+    border-left: 5px solid #0284c7;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 20px 0;
+    color: #334155;
+    font-size: 10pt;
+  }
+
+  .cover-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .metric-card {
+    background: #ffffff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  }
+
+  .metric-num {
+    font-size: 22pt;
+    font-weight: 800;
+    color: #0284c7;
+    display: block;
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: 8.5pt;
+    color: #475569;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .cover-index-box {
+    background: #f1f5f9;
+    border-left: 5px solid #0284c7;
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid #cbd5e1;
+    padding-top: 14px;
+    font-size: 9pt;
+    color: #64748b;
+  }
+
+  /* HEADINGS */
+  h1 {
+    font-size: 16pt;
+    color: #0f172a;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 12pt;
+    color: #0369a1;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    border-left: 4px solid #0284c7;
+    padding-left: 8px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 10pt;
+    color: #1e293b;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 7px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin: 0 0 8px 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 3px;
+  }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 6px;
+    padding: 9px 13px;
+    margin: 10px 0;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+
+  .callout-tech {
+    background-color: #f0f9ff;
+    border-left: 4px solid #0284c7;
+    color: #0c4a6e;
+  }
+
+  .callout-flow {
+    background-color: #f0fdf4;
+    border-left: 4px solid #16a34a;
+    color: #14532d;
+  }
+
+  .callout-warn {
+    background-color: #fffbeb;
+    border-left: 4px solid #d97706;
+    color: #78350f;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+    font-size: 9.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* TABLAS */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 8.5pt;
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  th {
+    background-color: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: left;
+    padding: 5px 7px;
+    border: 1px solid #334155;
+  }
+
+  td {
+    padding: 5px 7px;
+    border: 1px solid #cbd5e1;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge-module { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+  .badge-state { background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+  .badge-success { background-color: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+
+  /* CODE / DIAGRAM BLOCKS */
+  pre {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 8pt;
+    line-height: 1.35;
+    overflow-x: auto;
+    margin: 6px 0;
+    page-break-inside: avoid;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .step-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+  }
+
+  .step-num {
+    display: inline-block;
+    background: #0284c7;
+    color: white;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    font-size: 8pt;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div class="cover-header">
+    <span class="cover-badge">Documento Oficial de Operación y Procesos</span>
+    <h1 class="cover-title">MANUAL FUNCIONAL Y OPERATIVO</h1>
+    <div class="cover-subtitle">Sistema SERVICIO-TEC-CRM en Producción: Módulos, Flujos y Capacidades de Negocio</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-desc">
+      Este documento describe con rigurosidad todas las <strong>funciones, capacidades operativas y procesos de negocio</strong> que ejecuta el sistema <code>SERVICIO-TEC-CRM</code> cuando se encuentra en pleno funcionamiento. Diseñado como guía de referencia para comprender la automatización integral de un taller tecnológico moderno: desde la atención al cliente hasta el control de calidad y reportes gerenciales.
+    </div>
+
+    <div class="cover-metrics">
+      <div class="metric-card">
+        <span class="metric-num">10</span>
+        <span class="metric-label">Módulos Operativos</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">7</span>
+        <span class="metric-label">Estados de Orden</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">6</span>
+        <span class="metric-label">Métodos de Pago</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-num">100%</span>
+        <span class="metric-label">Trazabilidad Total</span>
+      </div>
+    </div>
+
+    <div class="cover-index-box">
+      <strong style="font-size: 10pt; color: #0369a1; display: block; margin-bottom: 6px;">CONTENIDO DEL MANUAL FUNCIONAL:</strong>
+      <ol style="margin: 0; padding-left: 20px; font-size: 8.8pt;">
+        <li><strong>Arquitectura y Ecosistema Operativo:</strong> Actores, roles y visión global.</li>
+        <li><strong>Módulo CRM y Clientes:</strong> Persona natural vs empresas, niveles y fidelización.</li>
+        <li><strong>Módulo de Personal Técnico:</strong> Especialidades y asignación de recursos.</li>
+        <li><strong>Recepción y Hoja de Vida de Equipos:</strong> Registro físico e inspección inicial.</li>
+        <li><strong>Ciclo de Vida de las Órdenes de Servicio:</strong> Máquina de 7 estados y tipos de orden.</li>
+        <li><strong>Gestión de Almacén y Repuestos:</strong> Despacho blindado y alertas de rotura.</li>
+        <li><strong>Motor Comercial de Descuentos:</strong> Frecuencia, campañas y validaciones.</li>
+        <li><strong>Facturación y Pasarelas Contables:</strong> Boletas, facturas, IGV y Yape/Plin.</li>
+        <li><strong>Garantías y Control de Calidad:</strong> Certificados, validez y protección legal.</li>
+        <li><strong>Portal Web CRM y Seguimiento:</strong> Consulta autónoma del cliente y notificaciones.</li>
+        <li><strong>Inteligencia de Negocio y Reportes:</strong> Fichas de orden, stock y KPIs gerenciales.</li>
+        <li><strong>Flujograma Integral de un Caso Real:</strong> Recorrido punta a punta.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <div>
+      <strong>Sistema:</strong> SERVICIO-TEC-CRM (Java 21 / Maven)<br>
+      <strong>Área de Aplicación:</strong> Centros de Soporte Técnico y Electrónica
+    </div>
+    <div style="text-align: right;">
+      <strong>Tipo de Documento:</strong> Manual de Capacidades Operativas<br>
+      <strong>Estado:</strong> Aprobado para Producción y Sustentación
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- SECCIÓN 1: ECOSISTEMA OPERATIVO -->
+<!-- ========================================== -->
+<h1>1. Arquitectura y Ecosistema Operativo del Sistema</h1>
+<p>
+El sistema <strong>SERVICIO-TEC-CRM</strong> transforma el funcionamiento tradicional de un taller de soporte informático en una empresa automatizada y orientada al cliente. Conecta en tiempo real a cuatro actores principales a través de flujos de trabajo estandarizados:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">Actor / Rol</th>
+      <th style="width: 30%;">Responsabilidad en el Sistema</th>
+      <th style="width: 50%;">Interacciones y Puntos de Contacto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cliente Final</strong><br>(Natural o Corporativo)</td>
+      <td>Ingresa su equipo averiado, aprueba cotizaciones, abona el servicio y consulta el avance.</td>
+      <td>Recibe notificaciones automáticas (SMS/Email), consulta el Portal CRM público con su DNI/Código y recibe comprobante electrónico con garantía.</td>
+    </tr>
+    <tr>
+      <td><strong>Recepcionista / Cajero</strong></td>
+      <td>Atiende en mostrador, registra datos del cliente y equipo, y procesa la facturación.</td>
+      <td>Utiliza <code>GestorClientes</code>, genera la <code>OrdenServicio</code>, despacha comprobantes (<code>Boleta</code> / <code>Factura</code>) y cobra vía caja o billeteras digitales.</td>
+    </tr>
+    <tr>
+      <td><strong>Técnico Especialista</strong></td>
+      <td>Diagnostica la avería, repara el hardware/software y solicita repuestos a almacén.</td>
+      <td>Registra diagnóstico, fija mano de obra, solicita piezas a <code>InventarioRepuestos</code>, cambia estados y emite <code>CertificadoCalidad</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Jefe de Taller / Administrador</strong></td>
+      <td>Supervisa el inventario, autoriza descuentos manuales y analiza el rendimiento financiero.</td>
+      <td>Accede a <code>PanelAdmin</code>, emite alertas de stock mínimo, evalúa <code>ReporteDesempeno</code> y audita <code>ReporteVentas</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-tech">
+  <div class="callout-title">Cadena de Valor Integral</div>
+  Recepción y Diagnóstico → Planificación y Piezas → Reparación y Pruebas → Facturación y Descuentos → Postventa y Portal CRM → Analítica Gerencial.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 16px 0;">
+
+<!-- ========================================== -->
+<!-- SECCIÓN 2: MÓDULOS DE CLIENTES Y PERSONAL -->
+<!-- ========================================== -->
+<h1>2. Gestión CRM de Clientes y Asignación de Personal</h1>
+
+<h2>2.1 Tratamiento Dual de Clientes (Natural vs Empresarial)</h2>
+<p>
+El sistema no comete el error de tratar a todos los clientes por igual. Implementa una distinción tributaria y comercial rigurosa:
+</p>
+<ul>
+  <li><strong>Cliente Persona Natural (<code>Cliente</code>):</strong> Identificado por DNI (8 dígitos). Recibe atención personalizada de mostrador y comprobante tipo <strong>Boleta Electrónica</strong> donde los impuestos están consolidados en el precio final.</li>
+  <li><strong>Cliente Corporativo (<code>ClienteEmpresarial</code>):</strong> Identificado por RUC (11 dígitos). Registra Razón Social, Dirección Fiscal y Contacto Corporativo. Requiere emisión obligatoria de <strong>Factura Electrónica</strong> desglosando base imponible y 18% de IGV para beneficio de crédito fiscal ante SUNAT.</li>
+</ul>
+
+<h2>2.2 Motor de Fidelización y Niveles de Cliente (<code>NivelCliente</code>)</h2>
+<p>
+El CRM evalúa el historial transaccional del cliente para otorgarle un rango que desbloquea beneficios automáticos:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nivel de Fidelización</th>
+      <th>Criterio de Calificación</th>
+      <th>Beneficios Operativos en el Sistema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="badge badge-state">BRONCE</span></td>
+      <td>Cliente nuevo o con 1 servicio completado.</td>
+      <td>Acceso estándar al portal web y notificaciones de estado por correo.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-module">PLATA</span></td>
+      <td>Cliente recurrente (2 a 3 servicios completados).</td>
+      <td>Descuento automático del 5% en mano de obra y prioridad intermedia en mesa de diagnóstico.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-success">ORO</span></td>
+      <td>Cliente fiel (4 a 6 servicios completados).</td>
+      <td>Descuento del 10% en mano de obra, asignación a técnicos senior y revisión preventiva de cortesía.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-module" style="background:#f3e8ff; color:#7e22ce;">PLATINUM</span></td>
+      <td>Cliente corporativo VIP (+7 servicios o contratos corporativos).</td>
+      <td>Descuento del 15% global, garantía extendida a 90 días y soporte técnico preferencial express.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2.3 Padrón de Técnicos y Asignación por Especialidad</h2>
+<p>
+Cada técnico registrado en el sistema posee un campo de <strong>especialidad técnica</strong>. Cuando la mesa de partes ingresa una orden con falla específica (ej. <em>"Cortocircuito en línea principal de placa base"</em>), el sistema orienta la asignación al técnico con la certificación adecuada (ej. <em>"Microelectrónica y Placas Madre"</em>), garantizando una tasa superior de éxito en las reparaciones.
+</p>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- SECCIÓN 3: RECEPCIÓN Y ÓRDENES DE SERVICIO -->
+<!-- ========================================== -->
+<h1>3. Recepción de Equipos y Ciclo de Vida de las Órdenes</h1>
+
+<h2>3.1 Ficha de Ingreso Físico del Dispositivo (<code>Equipo</code>)</h2>
+<p>
+Para proteger legalmente al taller frente a reclamos injustificados por desperfectos previos, el módulo de recepción captura:
+</p>
+<ul>
+  <li><strong>Tipo y Modelo:</strong> Categoría (Laptop, Computadora Desktop, Servidor, Tarjeta Gráfica) + Marca y Modelo exacto.</li>
+  <li><strong>Número de Serie Único (<code>SN</code>):</strong> Clave unívoca que vincula el chasis físico con la orden de servicio.</li>
+  <li><strong>Inspección Física y Accesorios:</strong> Inventario de elementos entregados: cargador original/genérico, fundas, cables, tornillos faltantes o pantalla astillada.</li>
+</ul>
+
+<h2>3.2 Tipología de Órdenes de Trabajo</h2>
+<div class="grid-2">
+  <div class="step-box">
+    <strong style="color: #0369a1;">Orden de Reparación (OrdenReparacion)</strong>
+    <p style="font-size: 8.5pt; margin-top: 4px;">Orientada a <strong>fallas críticas de hardware</strong> que requieren sustitución de componentes electrónicos, reballing, cambio de pantallas quebradas, reparación de fuentes de poder o recuperación de placas madre sulfatadas.</p>
+  </div>
+  <div class="step-box">
+    <strong style="color: #0369a1;">Orden de Mantenimiento (OrdenMantenimiento)</strong>
+    <p style="font-size: 8.5pt; margin-top: 4px;">Orientada a <strong>servicio preventivo y correctivo de software</strong>: limpieza por ultrasonido, recambio de pasta térmica y thermal pads de alta conductividad, optimización de BIOS, eliminación de malware y formateo con respaldo.</p>
+  </div>
+</div>
+
+<h2>3.3 Máquina de 7 Estados del Flujo Técnico (<code>EstadoOrden</code>)</h2>
+<p>
+La orden de servicio avanza de forma estrictamente gobernada por una máquina de estados:
+</p>
+
+<div class="step-box">
+  <span class="step-num">1</span> <strong>REGISTRADO:</strong> El equipo ingresa a recepción. Se asigna código de orden (<code>ORD-XXXX</code>) y se imprime la constancia de entrega del cliente.
+</div>
+<div class="step-box">
+  <span class="step-num">2</span> <strong>EN_DIAGNOSTICO:</strong> El técnico toma el equipo en banco de prueba, diagnostica la causa raíz y cotiza el costo de mano de obra.
+</div>
+<div class="step-box">
+  <span class="step-num">3</span> <strong>ESPERA_REPUESTO:</strong> Se activa cuando la pieza no está disponible en el inventario local y se requiere autorización de compra o despacho de proveedor.
+</div>
+<div class="step-box">
+  <span class="step-num">4</span> <strong>EN_REPARACION:</strong> Intervención física activa: desensamble, micro-soldadura, sustitución de componentes y ensamblado.
+</div>
+<div class="step-box">
+  <span class="step-num">5</span> <strong>LISTO_ENTREGA:</strong> El equipo superó con éxito las pruebas de estabilidad y control de calidad. Se dispara notificación automática al cliente.
+</div>
+<div class="step-box">
+  <span class="step-num">6</span> <strong>ENTREGADO:</strong> El cliente acude al taller, cancela la liquidación económica y retira el equipo con su póliza de garantía sellada.
+</div>
+<div class="step-box">
+  <span class="step-num">7</span> <strong>CANCELADO:</strong> La orden se cierra sin costo o con cargo de revisión si el cliente no aprueba el presupuesto de reparación.
+</div>
+
+<div class="callout callout-warn">
+  <div class="callout-title">Trazabilidad Inmutable de Estados</div>
+  Cada avance de estado genera un registro en <code>RegistroSeguimiento</code> con fecha, hora exacta, usuario responsable y motivo técnico. Nadie puede alterar estados sin dejar rastro de auditoría.
+</div>
+
+<hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 16px 0;">
+
+<!-- ========================================== -->
+<!-- SECCIÓN 4: INVENTARIO Y DESCUENTOS -->
+<!-- ========================================== -->
+<h1>4. Gestión de Almacén y Motor de Descuentos</h1>
+
+<h2>4.1 Control Blindado de Existencias (<code>InventarioRepuestos</code>)</h2>
+<p>
+El inventario de repuestos está integrado directamente con las órdenes de trabajo mediante un mecanismo de despacho seguro:
+</p>
+<ul>
+  <li><strong>Despacho Validado:</strong> Cuando el técnico solicita un componente (ej. <em>Chipset de Video BGA</em> o <em>Batería 4 celdas</em>), el método <code>despacharRepuesto(codigo, cantidad)</code> verifica que las existencias sean mayores a cero antes de descontar el stock.</li>
+  <li><strong>Prevención de Quiebre de Stock:</strong> Si una pieza no cuenta con existencias, la operación se aborta de inmediato y el sistema sugiere contactar a los proveedores registrados en <code>GestorProveedores</code>.</li>
+</ul>
+
+<h2>4.2 Motor Automatizado de Promociones (<code>GestorPromociones</code>)</h2>
+<p>
+El motor evalúa automáticamente qué beneficios económicos corresponden al cliente antes de generar el comprobante final:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de Descuento</th>
+      <th>Clase del Sistema</th>
+      <th>Regla de Aplicación</th>
+      <th>Ejemplo de Operación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Por Frecuencia</strong></td>
+      <td><code>DescuentoFrecuencia</code></td>
+      <td>Calcula el total de visitas del cliente en <code>GestorServicioTecnico</code> y aplica rebaja porcentual.</td>
+      <td>Cliente con 3 visitas anteriores obtiene 10% de descuento automático en mano de obra.</td>
+    </tr>
+    <tr>
+      <td><strong>Por Temporada</strong></td>
+      <td><code>DescuentoTemporada</code></td>
+      <td>Activo durante fechas comerciales específicas (Navidad, Aniversario, CyberDay).</td>
+      <td>15% de descuento en mantenimiento general durante la semana de aniversario del taller.</td>
+    </tr>
+    <tr>
+      <td><strong>Por Promoción / Cupón</strong></td>
+      <td><code>DescuentoPromocion</code></td>
+      <td>Valida código alfanumérico de cupón entregado en campañas de marketing.</td>
+      <td>Cupón <code>PROMO-VERANO-2026</code> aplica $20.00 de descuento directo en el subtotal.</td>
+    </tr>
+    <tr>
+      <td><strong>Manual Autorizado</strong></td>
+      <td><code>DescuentoManual</code></td>
+      <td>Otorgado por el Administrador con un tope máximo regulado para evitar pérdidas.</td>
+      <td>Aprobación de cortesía por demora en repuesto con justificación de gerencia.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- SECCIÓN 5: FACTURACIÓN Y GARANTÍAS -->
+<!-- ========================================== -->
+<h1>5. Facturación, Métodos de Pago y Garantías Postventa</h1>
+
+<h2>5.1 Emisión Polimórfica de Comprobantes Contables</h2>
+<p>
+Al momento de liquidar la orden, el sistema ejecuta la fórmula contable:
+</p>
+<pre><code>SUBTOTAL = Costo Mano de Obra + Sumatoria(Precio Unitario Repuestos) - Descuentos
+IGV (18%) = Base Imponible * 0.18 (según normativa tributaria)
+TOTAL A PAGAR = SUBTOTAL + IGV (para Factura) ó TOTAL CONSOLIDADO (para Boleta)</code></pre>
+
+<div class="grid-2">
+  <div class="step-box">
+    <strong style="color: #0369a1;">Boleta Electrónica (Boleta)</strong>
+    <p style="font-size: 8.5pt; margin-top: 4px;">Emitida a <strong>consumidores finales</strong> vinculada al número de DNI. El precio final mostrado incluye los impuestos. Genera un identificador de firma hash simulando autorización fiscal.</p>
+  </div>
+  <div class="step-box">
+    <strong style="color: #0369a1;">Factura Electrónica (Factura)</strong>
+    <p style="font-size: 8.5pt; margin-top: 4px;">Emitida a <strong>empresas</strong> con número de RUC. Desglosa rigurosamente la Base Imponible y el <strong>18% de IGV</strong> por separado, permitiendo el uso de crédito fiscal.</p>
+  </div>
+</div>
+
+<h2>5.2 Pasarelas y Métodos de Pago (<code>MetodoPago</code>)</h2>
+<p>
+El sistema liquida las órdenes a través de 6 métodos de pago integrados:
+</p>
+<ul>
+  <li><code>EFECTIVO</code>: Pago físico en mostrador de caja con control de cambio.</li>
+  <li><code>TARJETA_DEBITO</code> y <code>TARJETA_CREDITO</code>: Liquidación mediante terminal POS con número de operación.</li>
+  <li><code>TRANSFERENCIA</code>: Validación de abono en cuenta bancaria empresarial.</li>
+  <li><code>YAPE</code> y <code>PLIN</code>: Pagos móviles instantáneos mediante código QR o número telefónico, altamente demandados en mostrador.</li>
+</ul>
+
+<h2>5.3 Póliza de Garantía Post-Servicio (<code>Garantia</code>)</h2>
+<p>
+Al entregar el equipo reparado, el sistema genera formalmente una <strong>Póliza de Garantía</strong> que otorga seguridad jurídica al cliente y protege al taller:
+</p>
+<ul>
+  <li><strong>Vigencia Temporal Configurable:</strong> Períodos estándar de 30, 60 o 90 días según el tipo de intervención técnica.</li>
+  <li><strong>Cláusulas de Exclusión Explícitas:</strong> Exclusión de cobertura ante rotura de precintos de seguridad, daño por caídas, sobretensión eléctrica o evidencia de humedad.</li>
+  <li><strong>Validación Programática de Reclamos (<code>IValidable</code>):</strong> Si el cliente regresa semanas después aduciendo una falla, el sistema evalúa mediante <code>esValido()</code> si la garantía se encuentra vigente en el calendario o ya expiró.</li>
+</ul>
+
+<h2>5.4 Certificado de Control de Calidad (<code>CertificadoCalidad</code>)</h2>
+<p>
+Documento técnico adjunto que acredita que el dispositivo fue sometido a pruebas de estrés térmico, pruebas de memoria RAM, verificación de voltajes de fuente y estabilidad en banco antes de ser entregado.
+</p>
+
+<hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 16px 0;">
+
+<!-- ========================================== -->
+<!-- SECCIÓN 6: PORTAL CRM Y REPORTES -->
+<!-- ========================================== -->
+<h1>6. Portal Web CRM y Analítica Gerencial</h1>
+
+<h2>6.1 Portal CRM Autónomo para Clientes (<code>PortalCRM</code>)</h2>
+<p>
+Reduce drásticamente las llamadas telefónicas al taller permitiendo que el cliente consulte el estado de su equipo de forma autónoma:
+</p>
+<ul>
+  <li><strong>Acceso Seguro:</strong> El cliente ingresa a la plataforma web con su <strong>Código de Orden</strong> (ej. <code>ORD-1001</code>) y su <strong>DNI o RUC</strong>.</li>
+  <li><strong>Vista en Tiempo Real:</strong> El portal muestra el estado operativo actual, el nombre del especialista asignado, la fecha estimada de entrega y el presupuesto desglosado.</li>
+</ul>
+
+<h2>6.2 Inteligencia de Negocio y Reportes del Sistema</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Categoría</th>
+      <th>Reporte</th>
+      <th>Información que Proporciona a la Empresa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2"><strong>Operativos</strong><br>(Día a día)</td>
+      <td><code>ReporteOrden</code></td>
+      <td>Ficha técnica completa de la intervención: cliente, equipo, técnico, diagnóstico, repuestos consumidos y bitácora de tiempos.</td>
+    </tr>
+    <tr>
+      <td><code>ReporteInventario</code></td>
+      <td>Consolidado de stock disponible en almacén, repuestos con stock bajo y piezas de alta rotación.</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Gerenciales</strong><br>(Toma de decisiones)</td>
+      <td><code>ReporteDesempeno</code></td>
+      <td>KPIs de productividad técnica: cantidad de órdenes resueltas por especialista, tiempos medios de reparación y tasa de satisfacción.</td>
+    </tr>
+    <tr>
+      <td><code>ReporteVentas</code></td>
+      <td>Informe financiero de facturación total, ingresos desglosados por método de pago (Efectivo vs Yape vs Tarjetas) e IGV acumulado.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ========================================== -->
+<!-- SECCIÓN 7: CASO DE USO REAL INTEGRAL -->
+<!-- ========================================== -->
+<h1>7. Flujograma Completo de un Caso de Uso Real (Extremo a Extremo)</h1>
+<p>
+A continuación se detalla cómo el sistema ejecuta un caso real de soporte técnico de principio a fin:
+</p>
+
+<pre><code>[PASO 1] RECEPCIÓN:
+  • Cliente: Jorge Ramírez (DNI: 72938471, Nivel: PLATA)
+  • Equipo: Laptop ASUS TUF Gaming F15 (SN: SN-998822)
+  • Problema: "No da imagen en pantalla y calienta intensamente en la base"
+  • Acción del Sistema: GestorServicioTecnico genera Orden ORD-1001 en estado REGISTRADO.
+
+[PASO 2] ASIGNACIÓN Y DIAGNÓSTICO:
+  • Especialista asignado: Técnico Adrián Alvarado (Especialidad: Laptops y Placas Madre)
+  • Diagnóstico registrado: "Falla de chip integrado de video por recalentamiento y pasta seca"
+  • Costo mano de obra: S/. 90.00
+  • Acción del Sistema: Orden pasa a estado EN_DIAGNOSTICO y luego EN_REPARACION.
+
+[PASO 3] DESPACHO DE REPUESTOS:
+  • Pieza requerida: 1 Chipset Gráfico (Código: REP-01, Precio: S/. 150.00)
+  • Acción del Sistema: InventarioRepuestos valida stock disponible y descuenta 1 unidad.
+  • Se agrega el repuesto a la orden técnica ORD-1001.
+
+[PASO 4] CIERRE TÉCNICO Y CONTROL DE CALIDAD:
+  • El técnico realiza el trabajo, aplica pasta térmica disipadora y ejecuta pruebas 4K.
+  • Acción del Sistema: Se emite CertificadoCalidad. La orden pasa a LISTO_ENTREGA.
+  • El sistema envía NotificacionEstado al cliente avisando que puede recoger su laptop.
+
+[PASO 5] LIQUIDACIÓN Y FACTURACIÓN:
+  • Subtotal inicial: Mano de obra (S/. 90) + Repuesto (S/. 150) = S/. 240.00
+  • Motor de Promociones: Cliente nivel PLATA recibe 10% de descuento en mano de obra (-S/. 9.00)
+  • Total a Pagar: S/. 231.00
+  • Método de Pago: YAPE (Liquidación electrónica instantánea)
+  • Comprobante emitido: Boleta Electrónica B001-0001 con hash de seguridad SUNAT.
+
+[PASO 6] POSTVENTA Y SEGUIMIENTO:
+  • Emisión de Garantía GAR-001 por 60 días con exclusión de caídas y líquidos.
+  • El cliente consulta desde su smartphone en PortalCRM ingresando ORD-1001 y su DNI.
+  • Gerencia visualiza el impacto positivo en ReporteVentas y ReporteDesempeno.</code></pre>
+
+<div class="callout callout-flow">
+  <div class="callout-title">Conclusión del Funcionamiento del Sistema</div>
+  El software <strong>SERVICIO-TEC-CRM</strong> no es un simple programa de consola; es una solución empresarial completa que integra la mesa de partes, el banco de trabajo técnico, el control físico de almacén, el cálculo tributario de caja y la fidelización del cliente en una arquitectura robusta, escalable y trazable.
+</div>
+
+</body>
+</html>

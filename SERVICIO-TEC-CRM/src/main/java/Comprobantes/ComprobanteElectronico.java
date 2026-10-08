@@ -4,12 +4,6 @@ import Ordenes.OrdenServicio;
 import Enums.TipoComprobante;
 import Enums.MetodoPago;
 
-/**
- * Superclase para comprobantes con emisión digital y firma/hash de SUNAT.
- *
- * HERENCIA: extiende ComprobanteBase.
- * HIJOS DIRECTOS: Boleta, Factura
- */
 public abstract class ComprobanteElectronico extends ComprobanteBase {
 
     protected String codigoHashSunat;

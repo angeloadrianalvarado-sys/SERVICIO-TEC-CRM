@@ -2,11 +2,6 @@ package Reportes;
 
 import Ordenes.OrdenServicio;
 
-/**
- * Genera la ficha técnica completa de una Orden de Servicio.
- *
- * HERENCIA: extiende ReporteOperativo.
- */
 public class ReporteOrden extends ReporteOperativo {
 
     private OrdenServicio orden;

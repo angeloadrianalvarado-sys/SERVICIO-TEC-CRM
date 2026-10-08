@@ -2,11 +2,6 @@ package Portal;
 
 import Ordenes.OrdenServicio;
 
-/**
- * Póliza de garantía post-reparación emitida para el cliente.
- *
- * HERENCIA: extiende Certificado.
- */
 public class Garantia extends Certificado {
 
     private OrdenServicio orden;

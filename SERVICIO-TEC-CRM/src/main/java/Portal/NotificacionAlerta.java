@@ -2,14 +2,9 @@ package Portal;
 
 import Personas.ClienteBase;
 
-/**
- * Notificación urgente o de contingencia (ej. aprobación requerida de presupuesto, retraso de repuesto).
- *
- * HERENCIA: extiende Notificacion.
- */
 public class NotificacionAlerta extends Notificacion {
 
-    private String nivelUrgencia; // "ALTA", "CRITICA"
+    private String nivelUrgencia;
     private boolean requiereRespuestaCliente;
 
     public NotificacionAlerta(String id, String asunto, String mensaje,

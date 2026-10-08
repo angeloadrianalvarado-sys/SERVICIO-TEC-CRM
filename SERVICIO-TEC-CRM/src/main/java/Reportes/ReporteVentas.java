@@ -1,10 +1,5 @@
 package Reportes;
 
-/**
- * Reporte financiero de facturación acumulada, ingresos por mano de obra y repuestos.
- *
- * HERENCIA: extiende ReporteGerencial.
- */
 public class ReporteVentas extends ReporteGerencial {
 
     private double totalIngresosManoObra;

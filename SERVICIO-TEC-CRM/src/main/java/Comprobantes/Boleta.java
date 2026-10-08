@@ -4,11 +4,6 @@ import Ordenes.OrdenServicio;
 import Enums.TipoComprobante;
 import Enums.MetodoPago;
 
-/**
- * Representa una Boleta de Venta Electrónica emitida a consumidor final.
- *
- * HERENCIA: extiende ComprobanteElectronico.
- */
 public class Boleta extends ComprobanteElectronico {
 
     private String dniCliente;

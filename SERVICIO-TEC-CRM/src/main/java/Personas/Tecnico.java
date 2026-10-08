@@ -1,10 +1,5 @@
 package Personas;
 
-/**
- * Representa a un Técnico de soporte.
- *
- * HERENCIA: extiende PersonalInterno.
- */
 public class Tecnico extends PersonalInterno {
 
     private String especialidad;

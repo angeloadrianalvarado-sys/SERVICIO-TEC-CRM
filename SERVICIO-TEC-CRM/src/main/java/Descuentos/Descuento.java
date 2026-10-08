@@ -1,11 +1,5 @@
 package Descuentos;
 
-/**
- * Superclase abstracta para deducciones monetarias sobre el costo del servicio.
- *
- * HERENCIA: extiende BeneficioBase.
- * HIJOS DIRECTOS: DescuentoDirecto, DescuentoCondicional
- */
 public abstract class Descuento extends BeneficioBase {
 
     protected String codigo;

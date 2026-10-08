@@ -2,11 +2,6 @@ package Repuestos;
 
 import Base.Elemento;
 
-/**
- * Representa un repuesto o componente utilizado durante la reparación.
- *
- * HERENCIA: extiende Elemento.
- */
 public class Repuesto extends Elemento {
 
     private double precioUnitario;

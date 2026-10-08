@@ -3,11 +3,6 @@ package Repuestos;
 import Gestores.GestorAlmacen;
 import Interfaces.IReportable;
 
-/**
- * Gestiona el stock físico de repuestos en el almacén.
- *
- * HERENCIA: extiende GestorAlmacen.
- */
 public class InventarioRepuestos extends GestorAlmacen implements IReportable {
 
     private Repuesto[] listaRepuestos;

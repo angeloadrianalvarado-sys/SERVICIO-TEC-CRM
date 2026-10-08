@@ -1,11 +1,5 @@
 package Base;
 
-/**
- * Superclase abstracta para todos los registros de auditoría del sistema.
- * Centraliza fecha/hora y responsable de cada evento registrado.
- *
- * HIJOS DIRECTOS: RegistroSeguimiento, RegistroAcceso
- */
 public abstract class RegistroAuditoria {
 
     protected String fechaHoraRegistro;
@@ -21,6 +15,5 @@ public abstract class RegistroAuditoria {
 
     public String getTipoEvento() { return null; }
 
-    /** Retorna el registro formateado para mostrar en consola. (POLIMORFISMO) */
     public abstract String getTextoFormateado();
 }

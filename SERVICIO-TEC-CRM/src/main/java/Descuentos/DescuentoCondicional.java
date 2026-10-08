@@ -2,12 +2,6 @@ package Descuentos;
 
 import java.time.LocalDate;
 
-/**
- * Superclase para descuentos sujetos a vigencia temporal, campañas o condiciones especiales.
- *
- * HERENCIA: extiende Descuento.
- * HIJOS DIRECTOS: DescuentoPromocion, DescuentoTemporada
- */
 public abstract class DescuentoCondicional extends Descuento {
 
     protected LocalDate fechaInicio;

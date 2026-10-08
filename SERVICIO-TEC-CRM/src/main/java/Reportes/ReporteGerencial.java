@@ -1,14 +1,8 @@
 package Reportes;
 
-/**
- * Superclase para reportes financieros y directivos del negocio.
- *
- * HERENCIA: extiende ReporteBase.
- * HIJOS DIRECTOS: ReporteVentas, ReporteDesempeno
- */
 public abstract class ReporteGerencial extends ReporteBase {
 
-    protected String periodoAnalisis; // "MENSUAL", "TRIMESTRAL", "ANUAL"
+    protected String periodoAnalisis;
 
     public ReporteGerencial(String titulo, String responsable, String periodoAnalisis) {
         super(titulo, responsable);

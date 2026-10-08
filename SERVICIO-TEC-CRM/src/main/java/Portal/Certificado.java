@@ -3,12 +3,6 @@ package Portal;
 import Reportes.DocumentoSalida;
 import Interfaces.IValidable;
 
-/**
- * Superclase para certificados oficiales emitidos por el taller al cliente.
- *
- * HERENCIA: extiende DocumentoSalida.
- * HIJOS DIRECTOS: Garantia, CertificadoCalidad
- */
 public abstract class Certificado extends DocumentoSalida implements IValidable {
 
     protected String codigoCertificado;
@@ -28,7 +22,6 @@ public abstract class Certificado extends DocumentoSalida implements IValidable 
     @Override
     public String obtenerPiePagina() { return "Certificado: " + codigoCertificado; }
 
-    /** Valida los términos y condiciones de validez. (POLIMORFISMO) */
     public abstract boolean comprobarValidez();
 
     public String getCodigoCertificado() { return codigoCertificado; }

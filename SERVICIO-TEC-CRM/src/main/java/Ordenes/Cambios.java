@@ -3,13 +3,6 @@ package Ordenes;
 import Base.EntidadRastreable;
 import Enums.EstadoOrden;
 
-/**
- * Superclase que encapsula la gestión del ciclo de vida de una orden:
- * cambio de estados, registro de historial y diagnóstico técnico.
- *
- * HERENCIA: extiende EntidadRastreable.
- * HIJOS DIRECTOS: OrdenServicio
- */
 public class Cambios extends EntidadRastreable {
 
     protected double costoManoObra;

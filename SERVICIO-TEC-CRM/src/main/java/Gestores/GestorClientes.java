@@ -2,11 +2,6 @@ package Gestores;
 
 import Personas.ClienteBase;
 
-/**
- * Gestiona el registro y consulta de los clientes del taller.
- *
- * HERENCIA: extiende GestorPersonas.
- */
 public class GestorClientes extends GestorPersonas {
 
     private ClienteBase[] listaClientes;

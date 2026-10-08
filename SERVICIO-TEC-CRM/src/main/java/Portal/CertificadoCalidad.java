@@ -2,16 +2,11 @@ package Portal;
 
 import Ordenes.OrdenServicio;
 
-/**
- * Certificado de control de calidad y pruebas técnicas superadas (benchmarks, estrés, voltaje).
- *
- * HERENCIA: extiende Certificado.
- */
 public class CertificadoCalidad extends Certificado {
 
     private OrdenServicio orden;
     private String tecnicoControlCalidad;
-    private int puntajePruebas; // 0 a 100
+    private int puntajePruebas;
 
     public CertificadoCalidad(String codigoCertificado, OrdenServicio orden,
                               String tecnicoControlCalidad, int puntajePruebas) {

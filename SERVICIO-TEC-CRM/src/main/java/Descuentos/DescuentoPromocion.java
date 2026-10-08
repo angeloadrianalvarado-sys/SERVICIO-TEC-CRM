@@ -2,11 +2,6 @@ package Descuentos;
 
 import java.time.LocalDate;
 
-/**
- * Descuento por campaña o código de cupón promocional.
- *
- * HERENCIA: extiende DescuentoCondicional.
- */
 public class DescuentoPromocion extends DescuentoCondicional {
 
     private String codigoPromocion;

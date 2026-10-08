@@ -2,11 +2,6 @@ package Reportes;
 
 import Repuestos.InventarioRepuestos;
 
-/**
- * Reporte del estado de inventario y stock de repuestos.
- *
- * HERENCIA: extiende ReporteOperativo.
- */
 public class ReporteInventario extends ReporteOperativo {
 
     private InventarioRepuestos inventario;
